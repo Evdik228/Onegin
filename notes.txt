@@ -1,0 +1,12 @@
+Spiting a task into a micro-task:
+
+-   The core of the program: 
+    -- Storing an array of pointers +
+    -- put everything into dynamic memory +
+    -- Reading the text from file into this array + 
+    -- Output text in another file +
+    -- String comparison +
+    -- Sorting Lines(bobble sort)+
+    -- Use realoc for index_line
+    -- 
+
