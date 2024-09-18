@@ -24,17 +24,16 @@ const char* OUTPUT_FILE_NAME = "sort_text.txt";
 //       it is strange that you are opening and closing file just to know its size
 //       so i think FILE * is better
 
-
 //main 
 
 int main(const int argc, char const *argv[]) {
-    // TODO разбить на файлы
-    // TODO мейн должен быть в начале
+
     //Creating and filling an array
 
     int number_of_symbols = Get_file_size(SCAN_FILE_NAME); //TODO: Parsing open file error: yes
 
-    FILE * file = fopen(SCAN_FILE_NAME, "rt");   
+    FILE * file = fopen(SCAN_FILE_NAME, "rt");
+
     FILE * output_f = fopen(OUTPUT_FILE_NAME,"w");     
 
     char * text = (char *)calloc(number_of_symbols, sizeof(char)); 
@@ -57,19 +56,7 @@ int main(const int argc, char const *argv[]) {
 
     number_of_lines = Fill_array_pointer(array_of_lines, number_of_lines, number_of_symbols);
 
-    fprintf(output_f, "\n\n----------------------------------------------------- Sort L --> R ---------------------------------------------------\n\n");
-    Bobble_sort_text(array_of_lines, number_of_lines, Strcmp_left_to_right);
-    Output_text_file(array_of_lines, number_of_lines, number_of_symbols, output_f);
-    printf("\nSort L --> R\n");
-
-    fprintf(output_f, "\n\n-----------------------------------------------------Sort R --> l -----------------------------------------------------\n\n");
-    Bobble_sort_text(array_of_lines, number_of_lines, Strcmp_right_to_left);
-    Output_text_file(array_of_lines, number_of_lines, number_of_symbols, output_f);
-    printf("Sort R --> L\n");
-
-    fprintf(output_f, "\n\n----------------------------------------------------- OUR TEXT --------------------------------------------------\n\n");
-    Output_original(text, number_of_symbols, output_f);
-    printf("OUR TEXT\n");
+    Output_data(output_f, array_of_lines, number_of_lines, number_of_symbols, text); 
 
 
     free(text);     //clean memory 

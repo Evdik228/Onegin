@@ -19,6 +19,8 @@ size_t Get_file_size(const char * SCAN_FILE_NAME) {
 	return file_size;    
 }
 
+
+
 /*
 void SWAP (void * elem1, void * elem2, size_t size) {
     void * buffer =  calloc(1 , size);

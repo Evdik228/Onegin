@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "../heders/input_output.h"
+#include "../heders/sort.h"
 
 
 int First_n_lines(char* text, int number_of_symbols){
@@ -60,3 +61,19 @@ void Output_text_file(line* array_of_lines, int number_of_lines, int number_of_s
 
     }
 }   
+void Output_data(FILE * output_f, line* array_of_lines, int number_of_lines, int number_of_symbols, char* text) { 
+
+        fprintf(output_f, "\n\n----------------------------------------------------- Sort L --> R ---------------------------------------------------\n\n");
+        Bobble_sort_text(array_of_lines, number_of_lines, Strcmp_left_to_right);
+        Output_text_file(array_of_lines, number_of_lines, number_of_symbols, output_f);
+        printf("\nSort L --> R\n");
+
+        fprintf(output_f, "\n\n-----------------------------------------------------Sort R --> l -----------------------------------------------------\n\n");
+        Bobble_sort_text(array_of_lines, number_of_lines, Strcmp_right_to_left);
+        Output_text_file(array_of_lines, number_of_lines, number_of_symbols, output_f);
+        printf("Sort R --> L\n");
+
+        fprintf(output_f, "\n\n----------------------------------------------------- OUR TEXT --------------------------------------------------\n\n");
+        Output_original(text, number_of_symbols, output_f);
+        printf("OUR TEXT\n");
+    }
