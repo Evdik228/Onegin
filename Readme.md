@@ -1,5 +1,5 @@
 # Onegin 
-This project was created to sort alphabetically (by the beginning and end of the lines) the text of the famous Russian writer Alexander Sergeevich Pushkin
+This project was created to sort alphabetically (by the beginning and end of the lines) the text of the famous Russian writer Alexander Sergeevich Pushkin. The text is sorted in two ways, the sorting function takes a pointer to the comparator. The sorted data is output to a file.
 
 ## 
 - [Technologies](#technologies)
@@ -33,4 +33,4 @@ To install and run the project, you need [Linux](https://www.linux.org/) for mak
 ## Project team
 - [Evdokimov Dmitriy](https://t.me/Ev_dima) — chief developer
 - [Dedinskiy Ilia](https://vk.com/ded32_ru) — team leader
-- [Jitnikov Andrei](https://t.me/azhkov) — mentor, editor
+- [Zhitnikov Andrey](https://t.me/azhkov) — mentor, editor

@@ -8,23 +8,10 @@
 #include "../heders/sort.h"
 #include "../heders/utilits.h"
 
-// TODO: do not commit binaries(a.out)
-// TODO: "main.cpp" seriously????   
-
-
-// TODO: why define and not a function???
-
 
 const char* SCAN_FILE_NAME = "text.txt"; 
 const char* OUTPUT_FILE_NAME = "sort_text.txt"; 
 
-
-// TODO: maybe it is better for function parameter to be FILE * argument, 
-//       I think it will be more usable
-//       it is strange that you are opening and closing file just to know its size
-//       so i think FILE * is better
-
-//main 
 
 int main(const int argc, char const *argv[]) {
 
@@ -32,11 +19,17 @@ int main(const int argc, char const *argv[]) {
 
     int number_of_symbols = Get_file_size(SCAN_FILE_NAME); //TODO: Parsing open file error: yes
 
-    FILE * file = fopen(SCAN_FILE_NAME, "rt");
+    FILE * file     = fopen(SCAN_FILE_NAME, "rt"); 
+    if (file == NULL) {
+         return 0;
+    }
 
     FILE * output_f = fopen(OUTPUT_FILE_NAME,"w");     
+    if (output_f == NULL) {
+        return 0;
+    }
 
-    char * text = (char *)calloc(number_of_symbols, sizeof(char)); 
+    char * text = (char *)calloc(number_of_symbols, sizeof(char));  //TODO: make new function
 
     if (number_of_symbols == fread(text, sizeof(char), number_of_symbols, file)) {
         printf("writing data to the array was successful!\n");
@@ -45,7 +38,6 @@ int main(const int argc, char const *argv[]) {
         printf("error in reading data from the file!\n");
 
     }
-
     int number_of_lines = First_n_lines(text, number_of_symbols); 
     line * array_of_lines = (line *)calloc(number_of_lines + 1, sizeof(line)); // in 64b_os one pointer like double - 8bite
     printf("n_lines: %i\n", number_of_lines);
